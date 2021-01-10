@@ -1,3 +1,6 @@
+/*
+Benchmark taken from "Many-Objective Problesm Are Not Always Difficult for Pareto Dominance-Based Evolutionary Algorithms" by Hisao Ishibuchi et al. + "Scalable multi-objective optimization test problems" by K. Deb, L. et al. 
+*/
 #include <bits/stdc++.h>
 using namespace std;
 void minusdtlz1(vector<double> &x, vector<double> &f)
@@ -65,7 +68,7 @@ void minusdtlz3(vector<double> &x, vector<double> &f)
         int aux = nobj - (i + 1);
         f[i] *= sin(x[aux]*0.5*M_PI);
       } // if
-    f[i] = -f[i] + 222*k;
+    f[i] = -f[i] + 1.0 + 221*k;
   } //for
 }
 void minusdtlz4(vector<double> &x, vector<double> &f)
@@ -96,11 +99,11 @@ void minusdtlz4(vector<double> &x, vector<double> &f)
 
 int main()
 {
-  vector<double> f(2), x(2);
-  for(int i = 0; i < 1000000; i++)
+  vector<double> f(3), x(2);
+  for(int i = 0; i < 10000; i++)
   {
    for(auto &a:x) a = rand()/(double)RAND_MAX;
-   minusdtlz4(x, f);
+   minusdtlz3(x, f);
    for(auto &m:f) cout << m<<" ";
    cout <<endl;
   }
